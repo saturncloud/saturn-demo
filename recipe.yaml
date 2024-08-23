@@ -1,0 +1,23 @@
+schema_version: 2024.04.01
+type: job
+spec:
+  name: job
+  description: ''
+  image: saturncloud/saturn-python:2023.09.01
+  instance_type: c6a4xlarge
+  environment_variables: {}
+  working_directory: /home/jovyan/workspace/saturn-demo
+  extra_packages:
+    pip:
+      install: saturnfs saturn-client
+  git_repositories: []
+  secrets: []
+  shared_folders:
+  - owner: hugo
+    path: /home/jovyan/shared/hugo/nfstest
+    name: nfstest
+  start_dind: false
+  command: sleep 3600
+  scale: 4
+  use_spot_instance: false
+  
